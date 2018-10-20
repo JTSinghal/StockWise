@@ -20,12 +20,42 @@ app.get('/api/hello', (req, res) => {
 app.post('/api/symbol', (req, res) => {
   const company = req.body.company;
 
-  const url = `http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${company}&region=1&lang=en`
-  fetch(url)
+  let yahoo = fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${company}&region=1&lang=en`)
+    .then(res => res.json())
+    .then(json => {
+      let alphaVantage = fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${json.ResultSet.Result[0].symbol}&outputsize=full&apikey=E38O55LQ9PF702VN`)
+        .then(res => res.json())
+        .then(prices => {
+          res.send(prices);
+        });
+    });
+
+});
+
+/*
+const fetchAndLog = async () => {
+.then(lol => {
+  console.log('inside fetch'); 
+  console.log(lol);
+});
+
+ 
+const response = await fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${company}&region=1&lang=en`);
+const json = await response.json();
+// just log ‘json’
+console.log(json);
+*/
+
+
+/* 
+  const symbol = json.ResultSet.Result[1].symbol;
+  const alphaVantage = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=full&apikey=E38O55LQ9PF702VN`
+  fetch(alphaVantage)
   .then(res => res.json())
   .then(json => {
     res.send(json);
   })
 })
+*/
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
