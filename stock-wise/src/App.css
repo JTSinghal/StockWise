@@ -1,16 +1,11 @@
 .app {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
 
 .app-header{
-  /* text-align: left; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
+  padding-top: 10px; 
   color: white;
-  /* font-size: calc(10px + 2vmin); */
 }

@@ -1,0 +1,16 @@
+.footerDiv {
+    background-color: rgb(88,88,88);
+    text-align: center;
+    color: black;
+    width: 100%;
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    color: white
+}
+
+.footerText {
+    padding-top: 10px;
+    margin-bottom: 5px;
+}

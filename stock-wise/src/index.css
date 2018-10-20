@@ -6,7 +6,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    linear-gradient(to left, rgb(146,141,171,0.4), rgb(31,28,44, 0.4) 70%), 
+    url("./assets/background.jpg");
+  /*
   background-color: #282c34;
+  */
 }
 
 code {
