@@ -32,6 +32,15 @@ app.post('/api/symbol', (req, res) => {
 
 });
 
+app.post('/api/pastNews', (req, res) => {
+  const company = req.body.company;
+  const date = req.body.date;
+
+  const spawn = require("child_process").spawn;
+  const pythonProcess = spawn('python3', )
+
+});
+
 /*
 const fetchAndLog = async () => {
 .then(lol => {

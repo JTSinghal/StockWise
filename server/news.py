@@ -35,7 +35,7 @@ def getNews(stock, day):
             pastNews.append(i['url'])
     for i in after_all_articles['articles']:
         if (stock in i["title"]):
-            afterNews.append(i)
+            afterNews.append(i['url'])
     return pastNews, afterNews
 
 def concatBody(arrayOfURLs):
