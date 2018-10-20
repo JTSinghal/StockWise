@@ -19,12 +19,6 @@ class SearchBox extends Component {
 
     render() {
         return (
-            // <input
-            //     placeholder="Search for..."
-            //     ref={input => this.search = input}
-            //     onChange={this.handleInputChange}
-            //     type='search'
-            // />
             <input 
                 className="form-control form-control-lg searchbox" 
                 type="text" 
