@@ -1,15 +1,16 @@
 input[type="search"] {
     -moz-appearance: none;
     -webkit-appearance: none;
-    color:white;
-    text-align: center;
+    
     display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    justify-content: center;
     border: 0px none transparent;
     border-radius: 10px;
     line-height: 20px;
     background-color: white;
     padding: 3px 5px;
+    
+}
+
+.center {
+    justify-content: center;
 }
