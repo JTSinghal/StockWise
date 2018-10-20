@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SearchBox.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { apiPost } from '../../api';
-import Chart from '../Chart';
+import Chart from './../Chart/Chart.js';
 
 class SearchBox extends Component {
 
@@ -45,7 +45,7 @@ class SearchBox extends Component {
                         <button onClick={this.handleSubmit} type="submit" value="Submit" className="btn btn-dark"><FontAwesomeIcon icon='search' /> Search</button>
                     </div>
                 </div>
-                <Chart data={this.state} />
+                return <Chart data={this.state} />
             </div>
         )
 

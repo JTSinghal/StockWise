@@ -12,11 +12,13 @@
     "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
     "i": "^0.3.6",
+    "moment": "^2.22.2",
     "npm": "^6.4.1",
     "python-shell": "^1.0.6",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-json-view": "^1.19.1",
+    "react-moment": "^0.8.2",
     "react-scripts": "2.0.5"
   },
   "scripts": {

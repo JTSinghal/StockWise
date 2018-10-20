@@ -6,9 +6,10 @@ import Moment from 'react-moment';
 class Chart extends Component {
 
     constructor(props) {
+        const currentDate = Moment (new Date ()).format("MM/DD/YYYY");
         super(props);
         this.state = {
-            date: Moment (new Date ()).format("MM/DD/YYYY"),
+            date: new Date,
             company: this.props.data.company,
         }
     }
@@ -29,5 +30,6 @@ class Chart extends Component {
             console.log(json);
         })
     }
-
 }
+
+export default Chart;
