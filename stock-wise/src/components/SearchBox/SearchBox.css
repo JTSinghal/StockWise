@@ -12,5 +12,6 @@ input[type="search"] {
 
 .searchbox {
     width: 25%;
-    border-radius: 15px;
+    border-radius: 40px; 
+    border:none;
 }
