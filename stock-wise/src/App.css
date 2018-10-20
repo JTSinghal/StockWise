@@ -1,8 +1,17 @@
-.App-header{
-  text-align: left;
+.app {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+
+.app-header{
+  /* text-align: left; */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
   color: white;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   padding-left: 20px;
 }

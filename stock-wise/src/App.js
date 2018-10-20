@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import Search from './components/Search.js';
+import SearchBox from './components/SearchBox/SearchBox.js';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="app">
+        {/* <header className="App-header">
           <p>
             StockWise
           </p>
-        </header>
-        <Search />
+        </header> */}
+        <h1 className="app-header">StockWise</h1>
+        <SearchBox />
       </div>
     );
   }
