@@ -6,11 +6,13 @@ import Moment from 'react-moment';
 class Chart extends Component {
 
     constructor(props) {
+        /*
         const currentDate = Moment (new Date ()).format("MM/DD/YYYY");
+        */
         super(props);
         this.state = {
             date: new Date,
-            company: this.props.data.company,
+            
         }
     }
 
@@ -24,11 +26,20 @@ class Chart extends Component {
     }
 
     handleSubmit = (event) => {
-        apiPost('api/pastNews', {company:this.state.company, date: this.state.date})
+        apiPost('api/pastNews', {date: this.state.date})
         .then(json => {
             /*Here is all the financial data*/
             console.log(json);
         })
+    }
+
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+
     }
 }
 

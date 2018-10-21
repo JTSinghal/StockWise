@@ -45,7 +45,7 @@ class SearchBox extends Component {
                         <button onClick={this.handleSubmit} type="submit" value="Submit" className="btn btn-dark"><FontAwesomeIcon icon='search' /> Search</button>
                     </div>
                 </div>
-                return <Chart data={this.state} />
+                <Chart data={this.state} />
             </div>
         )
 
