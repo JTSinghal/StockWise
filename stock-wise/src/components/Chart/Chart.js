@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import './Chart.css';
 import { apiPost } from '../../api';
-import Moment from 'react-moment';
+
+function formatDate(date) {
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+  
+    return year + "-" + monthIndex + "-" + day;
+  }
 
 class Chart extends Component {
 
     constructor(props) {
-        /*
-        const currentDate = Moment (new Date ()).format("MM/DD/YYYY");
-        */
         super(props);
+        const date = new Date();
+        const currentDate = formatDate(date);
+
         this.state = {
-            date: new Date,
-            
+            date: currentDate,
+            company: this.props.data.company,
         }
+        
     }
 
     handleChange = (event) => {
@@ -26,20 +34,19 @@ class Chart extends Component {
     }
 
     handleSubmit = (event) => {
-        apiPost('api/pastNews', {date: this.state.date})
+        apiPost('api/pastNews', {company:this.state.company, date: this.state.date})
         .then(json => {
             /*Here is all the financial data*/
             console.log(json);
         })
     }
 
-    render() {
-        return (
+    render (){
+        return(
             <div>
-                
+
             </div>
         )
-
     }
 }
 
