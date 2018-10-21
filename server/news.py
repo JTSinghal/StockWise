@@ -48,6 +48,7 @@ def getNews(stock, day):
             pastNews.append(i['url'])
             thisjson["headline" + str(savenum)] =  i["title"]
             thisjson["url" + str(savenum)] = i['url']
+
     for i in after_all_articles['articles']:
         if (stock in i["title"]):
             savenum = savenum + 1
@@ -78,26 +79,9 @@ def aylienSentimentCalc(textToAnalyze):
     thisjson['confidence'] = sentiment['polarity_confidence']
     return "This was a " + sentiment['subjectivity'] + "ly " + sentiment['polarity'] + " stock and time, with a confidence of " + str(sentiment['polarity_confidence']) + "."
 
-
-#def vectorize(fullbody):
-#    vectorizer = CountVectorizer()
-#    vec = vectorizer.fit_transform(fullbody)
-#    return vectorizer, vec
-
-
 thisjson = {}
 
 
 print(aylienSentimentCalc(concatBody(getNews(sys.argv[1], sys.argv[2])[0])))
 jsonret = json.dumps(thisjson)
 print(jsonret)
-
-#vectorizerret = vectorize(concatBody(getNews('Facebook', '17 Oct 2018')[0]))[0]
-#vecreturn = vectorize(concatBody(getNews('Facebook', '17 Oct 2018')[0]))[1]
-#print(vecreturn.toarray())
-
-
-
-
-
-#print(aylienSentimentCalc('John is a very good football player!'))

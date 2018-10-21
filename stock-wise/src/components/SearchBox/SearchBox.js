@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SearchBox.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { apiPost } from '../../api';
-import Chart from './../Chart/Chart.js';
+import Chart from '../Chart/Chart.js';
 
 class SearchBox extends Component {
 
@@ -10,12 +10,14 @@ class SearchBox extends Component {
         super(props);
         this.state = {
             text: '',
+            stockPrices: [],
+            showComponent: false,
         }
     }
 
     handleChange = (event) => {
         this.setState({
-            text: event.target.value
+            text: event.target.value,
         });
     }
 
@@ -23,8 +25,13 @@ class SearchBox extends Component {
         apiPost('api/symbol', { company: this.state.text })
             .then(json => {
                 /*Here is all the financial data*/
-                console.log(json);
+                this.setState({stockPrices: json['Time Series (Daily)']});
             })
+            .then(price => {
+                this.setState({showComponent: true});
+            }
+            )
+        
     }
 
     render() {
@@ -45,7 +52,11 @@ class SearchBox extends Component {
                         <button onClick={this.handleSubmit} type="submit" value="Submit" className="btn btn-dark"><FontAwesomeIcon icon='search' /> Search</button>
                     </div>
                 </div>
-                <Chart data={this.state} />
+                {this.state.showComponent ?
+                <Chart data={this.state} /> :
+                null
+                }
+                
             </div>
         )
 

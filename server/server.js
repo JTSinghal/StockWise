@@ -23,7 +23,7 @@ app.post('/api/symbol', (req, res) => {
   let yahoo = fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${company}&region=1&lang=en`)
     .then(res => res.json())
     .then(json => {
-      let alphaVantage = fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${json.ResultSet.Result[0].symbol}&outputsize=full&apikey=E38O55LQ9PF702VN`)
+      let alphaVantage = fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${json.ResultSet.Result[0].symbol}&outputsize=compact&apikey=E38O55LQ9PF702VN`)
         .then(res => res.json())
         .then(prices => {
           res.send(prices);
