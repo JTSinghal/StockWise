@@ -22,6 +22,10 @@ class SearchBox extends Component {
     }
 
     handleSubmit = (event) => {
+        if (this.state.showComponent){
+            this.setState({showComponent: false});
+        }
+
         apiPost('api/symbol', { company: this.state.text })
             .then(json => {
                 /*Here is all the financial data*/
@@ -31,6 +35,7 @@ class SearchBox extends Component {
                 this.setState({showComponent: true});
             }
             )
+        this.forceUpdate();
         
     }
 

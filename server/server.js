@@ -44,8 +44,8 @@ app.post('/api/pastNews', (req, res) => {
 
   ps.PythonShell.run('news.py', options, function (err, results) {
     if (err) throw err;
-
-    console.log('results: %j', results)
+    console.log(results);
+    res.send(JSON.parse(results));
   })
 })
 
