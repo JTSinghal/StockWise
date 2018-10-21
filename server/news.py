@@ -50,14 +50,10 @@ def getNews(stock, day):
             thisjson["url" + str(savenum)] = i['url']
     for i in after_all_articles['articles']:
         if (stock in i["title"]):
-<<<<<<< HEAD:server/news.py
-            afterNews.append(i['url'])
-=======
             savenum = savenum + 1
             afterNews.append(i['url'])
             thisjson["headline"+ str(savenum)] =  i["title"]
             thisjson["url" + str(savenum)] = i['url']
->>>>>>> python-dev:stock-wise/news.py
     return pastNews, afterNews
 
 
