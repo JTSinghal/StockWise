@@ -62,7 +62,6 @@ def getNews(stock, day):
 def concatBody(arrayOfURLs):
     returnedConcat = ''
     for i in arrayOfURLs:
-        print(i)
         article = Article(i)
         article.download()
         article.parse()
@@ -82,6 +81,7 @@ def aylienSentimentCalc(textToAnalyze):
 thisjson = {}
 
 
-print(aylienSentimentCalc(concatBody(getNews(sys.argv[1], sys.argv[2])[0])))
+aylienSentimentCalc(concatBody(getNews(sys.argv[1], sys.argv[2])[0]))
 jsonret = json.dumps(thisjson)
 print(jsonret)
+sys.stdout.flush()

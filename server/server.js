@@ -1,3 +1,5 @@
+const ps  = require('python-shell');
+
 const express = require('express');
 const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
@@ -34,37 +36,18 @@ app.post('/api/symbol', (req, res) => {
 
 app.post('/api/pastNews', (req, res) => {
   const company = req.body.company;
-  const date = req.body.date;
+  const day = req.body.day;
+  console.log(day);
+  let options = {
+    args: [company, day],
+  };
 
-  const spawn = require("child_process").spawn;
-  const pythonProcess = spawn('python3', )
+  ps.PythonShell.run('news.py', options, function (err, results) {
+    if (err) throw err;
 
-});
-
-/*
-const fetchAndLog = async () => {
-.then(lol => {
-  console.log('inside fetch'); 
-  console.log(lol);
-});
-
- 
-const response = await fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${company}&region=1&lang=en`);
-const json = await response.json();
-// just log ‘json’
-console.log(json);
-*/
-
-
-/* 
-  const symbol = json.ResultSet.Result[1].symbol;
-  const alphaVantage = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=full&apikey=E38O55LQ9PF702VN`
-  fetch(alphaVantage)
-  .then(res => res.json())
-  .then(json => {
-    res.send(json);
+    console.log('results: %j', results)
   })
 })
-*/
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
